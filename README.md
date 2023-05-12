@@ -1,7 +1,8 @@
-### Hexlet tests and linter status:
+### genDiff project:
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
-[![Node CI](https://github.com/GusinieIstorii/frontend-project-46/workflows/Node%20CI/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
+![GitHub actions](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check.yml/badge.svg)
+что то не то как будто с бейджем
 
 # Hello! Welcome to the Difference Generator!
 
