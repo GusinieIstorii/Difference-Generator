@@ -1,5 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
+[![Node CI](https://github.com/GusinieIstorii/frontend-project-46/workflows/Node%20CI/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 
 # Hello! Welcome to the Difference Generator!
 
