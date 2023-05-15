@@ -2,7 +2,6 @@
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
 [![GitHub Actions](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/hello-world.yml/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
-![GitHub Actions](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/badge.svg)
 
 # Hello! Welcome to the Difference Generator!
 

@@ -40,11 +40,10 @@ const genDiff = (file1, file2) => {
     }
     return acc;
   }, '');
-  console.log(result);
   return result;
 };
 
-// console.log(genDiff('/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file1.json', '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file2.json'));
+// console.log(genDiff
+// ('/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file1.json',
+// '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file2.json'));
 export default genDiff;
-
-// try to implement and then google how to compare two objects
