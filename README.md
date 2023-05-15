@@ -1,8 +1,7 @@
 ### genDiff project:
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
-![GitHub actions](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)
-что то не то как будто с бейджем
+должен ли быть отдельный бейдж на экшнс?
 
 # Hello! Welcome to the Difference Generator!
 
