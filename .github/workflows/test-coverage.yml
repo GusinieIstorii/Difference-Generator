@@ -1,0 +1,32 @@
+# language: node_js
+
+# node_js:
+#   - 8.2.1
+# dist: trusty
+# addons:
+#   chrome: stable
+# before_script:
+#   - yarn global add nyc
+#   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+#   - chmod +x ./cc-test-reporter
+#   - ./cc-test-reporter before-build
+
+# script:
+#   - nyc --reporter=lcov yarn run unit
+
+# after_script:
+#   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+# notifications:
+#   email: false
+
+name: Test & publish code coverage
+   # Publish code coverage on Code Climate
+   # https://github.com/paambaati/codeclimate-action 
+  uses: paambaati/codeclimate-action@v4.0.0
+        # Add Code Climate secret key
+    env:
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
