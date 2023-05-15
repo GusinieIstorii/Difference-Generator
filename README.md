@@ -1,10 +1,8 @@
 ### genDiff project:
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
-[![GitHub Actions](https://github.com/GusinieIstorii/frontend-project-46/workflows/hello-world.yml/badge.svg)]
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-![example workflow](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/main.yml/badge.svg)
-![example workflow](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/hello-world.yml/badge.svg)
+![GitHub Actions](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/hello-world.yml/badge.svg)
+![GitHub Actions](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/badge.svg)
 
 # Hello! Welcome to the Difference Generator!
 
