@@ -1,6 +1,7 @@
 ### genDiff project:
 [![Actions Status](https://github.com/GusinieIstorii/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/maintainability)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3fbb589a007a0f396818/test_coverage)](https://codeclimate.com/github/GusinieIstorii/frontend-project-46/test_coverage)
 [![Node CI](https://github.com/GusinieIstorii/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/GusinieIstorii/frontend-project-46/actions)
 
 # Hello! Welcome to the Difference Generator!
@@ -22,4 +23,4 @@ The tool compares two configuration files and shows a difference.
 1. Enter 'npm ci' and 'npm link' in your console
 1. Congratulations! Installation is completed.
 
-## [Demonstration](https://asciinema.org/a/kcFClwfK71aJylbdj62moTFPZ)
+### [Demonstration](https://asciinema.org/a/kcFClwfK71aJylbdj62moTFPZ)
