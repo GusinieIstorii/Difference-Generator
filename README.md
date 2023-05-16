@@ -23,4 +23,6 @@ The tool compares two configuration files and shows a difference.
 1. Enter 'npm ci' and 'npm link' in your console
 1. Congratulations! Installation is completed.
 
-### [Demonstration](https://asciinema.org/a/kcFClwfK71aJylbdj62moTFPZ)
+### How does it work?
+### [Demonstration](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L)
+[![asciicast](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L.png)](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L)
