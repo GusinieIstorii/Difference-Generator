@@ -3,7 +3,7 @@ import getData from './parser.js';
 import stylish from './formatStylish.js';
 // import { cwd } from 'node:process';
 
-const genDiff = (file1, file2, format = stylish) => {
+const genDiff = (file1, file2, formater = stylish) => {
   const fileParsed1 = getData(file1);
   const fileParsed2 = getData(file2);
 
@@ -29,10 +29,10 @@ const genDiff = (file1, file2, format = stylish) => {
       const file2HasKey = Object.hasOwn(data2, key);
 
       if (_.isObject(preparedValue1)) {
-        preparedValue1 = format(preparedValue1, depth + 1);
+        preparedValue1 = formater(preparedValue1, depth + 1);
       }
       if (_.isObject(preparedValue2)) {
-        preparedValue2 = format(preparedValue2, depth + 1);
+        preparedValue2 = formater(preparedValue2, depth + 1);
       }
 
       if (file1HasKey && !file2HasKey) {

@@ -2,6 +2,7 @@
 
 import { Command } from 'commander';
 import genDiff from '../src/genDiff.js';
+import stylish from '../src/formatStylish.js';
 
 const program = new Command();
 
@@ -10,7 +11,7 @@ program
   .version('0.0.1', '-V, --version', 'output the version number')
   .action(genDiff)
   .helpOption('-h, --help', 'output usage information')
-  .option('-f, --format, <type>', 'output format', 'stylish')
+  .option('-f, --format <type>', 'output format', stylish)
   .arguments('<path1> <path2>');
 
 program.parse();
