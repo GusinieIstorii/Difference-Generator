@@ -10,7 +10,7 @@ program
   .version('0.0.1', '-V, --version', 'output the version number')
   .action(genDiff)
   .helpOption('-h, --help', 'output usage information')
-  .option('-f, --format, <type>', 'output format')
+  .option('-f, --format, <type>', 'output format', 'stylish')
   .arguments('<path1> <path2>');
 
 program.parse();
