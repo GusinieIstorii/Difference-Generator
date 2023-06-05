@@ -54,7 +54,6 @@ const genDiff = (file1, file2, formater = stylish) => {
     });
     const outIndent = ' '.repeat((depth * 4) - 4);
     const result = ['{', ...lines, `${outIndent}}`].join('\n');
-    console.log(result);
     return result;
   };
   return iter(fileParsed1, fileParsed2, 1);
