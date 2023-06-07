@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import getData from './parser.js';
 import stylish from './formatters/formatStylish.js';
-import plain from './formatters/formatPlain.js';
+// import plain from './formatters/formatPlain.js';
 // import { cwd } from 'node:process';
 
 const genDiff = (file1, file2, formater = stylish) => {
