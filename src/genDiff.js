@@ -1,13 +1,14 @@
 import _ from 'lodash';
 import getData from './parser.js';
 import stylish from './formatters/formatStylish.js';
+import plain from './formatters/formatPlain.js';
 // import { cwd } from 'node:process';
 
 const genDiff = (file1, file2, formater = stylish) => {
   const fileParsed1 = getData(file1);
   const fileParsed2 = getData(file2);
 
-  const iter = (data1, data2, depth) => {
+  const iter = (data1, data2, depth, ancestry) => {
     const keys1 = Object.keys(data1);
     const keys2 = Object.keys(data2);
     const allKeys = _.union(keys1, keys2).sort();
@@ -18,12 +19,15 @@ const genDiff = (file1, file2, formater = stylish) => {
 
       let status;
       let line;
+      const path = `${ancestry}.${key}`;
 
       if (_.isObject(preparedValue1) && _.isObject(preparedValue2)) {
         const indent = ' '.repeat(depth * 4 - 2);
         switch (formater) {
           case stylish:
             return `${indent}  ${key}: ${iter(preparedValue1, preparedValue2, depth + 1)}`;
+          case plain:
+            return iter(preparedValue1, preparedValue2, 1, path);
           default:
             return null;
         }
@@ -39,7 +43,16 @@ const genDiff = (file1, file2, formater = stylish) => {
 
       if (!file1HasKey && file2HasKey) {
         status = 'addition';
-        line = formater(status, key, preparedValue2, depth);
+        switch (formater) {
+          case stylish:
+            line = formater(status, key, preparedValue2, depth);
+            break;
+          case plain:
+            line = plain(path, status, key, preparedValue2);
+            break;
+          default:
+            return 'error1';
+        }
       }
 
       if (file1HasKey && file2HasKey) {
@@ -63,12 +76,12 @@ const genDiff = (file1, file2, formater = stylish) => {
     }
     return result;
   };
-  return iter(fileParsed1, fileParsed2, 1);
+  return iter(fileParsed1, fileParsed2, 1, '');
 };
 
 // console.log(genDiff(
 //   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
-//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json'
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json', stylish
 // ));
 
 export default genDiff;
@@ -118,7 +131,8 @@ export default genDiff;
 //         if (preparedValue1 === preparedValue2) {
 //           line = `${indent}${space}${key}: ${preparedValue1}`;
 //         } else {
-//           line = [`${indent}${minus}${key}: ${preparedValue1}`, `${indent}${plus}${key}: ${preparedValue2}`].join('\n');
+//       line = [`${indent}${minus}${key}: ${preparedValue1}`,
+// `${indent}${plus}${key}: ${preparedValue2}`].join('\n');
 //         }
 //       }
 //       return line;
