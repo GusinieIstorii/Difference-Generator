@@ -49,22 +49,19 @@ const genDiff = (file1, file2, format = 'stylish') => {
       }
 
       return node;
-    }, {});
-    
-    // console.log(diff);
-    const result = formatDiff(diff, format);
-    return result;
+    });
+    return diff;
   };
 
-  return iter(fileParsed1, fileParsed2);
+  return formatDiff(iter(fileParsed1, fileParsed2), format);
 };
 
-  console.log(genDiff(
-    '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
-    '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json', 'plain'
-  ));
+// console.log(genDiff(
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json', 'plain'
+// ));
 
-  // ____________________________
+// ____________________________
 
 //     const lines = allKeys.map((key) => {
 //       const preparedValue1 = data1[key];
