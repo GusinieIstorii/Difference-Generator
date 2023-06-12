@@ -7,6 +7,8 @@ const formatDiff = (data, format) => {
       return stylish(data);
     case 'plain':
       return plain(data);
+    // case 'json':
+    //   return json(data);
     default:
       throw new Error('IDK this format');
   }
