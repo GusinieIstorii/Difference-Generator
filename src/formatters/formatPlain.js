@@ -14,9 +14,6 @@ const plain = (dataToFormat) => {
   const iter = (data, path = '') => {
     const lines = data.map((obj) => {
       const currentPath = path ? `${path}.${obj.key}` : obj.key;
-      //   const value = (typeof obj.value === 'object') ? '[complex value]' : obj.value;
-      //   const valueBefore = !_.isObject(obj.valueBefore) ? obj.valueBefore : '[complex value]';
-      //   const valueAfter = !_.isObject(obj.valueAfter) ? obj.valueAfter : '[complex value]';
       let line;
 
       switch (obj.type) {

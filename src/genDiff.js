@@ -58,7 +58,7 @@ const genDiff = (file1, file2, format = 'stylish') => {
 
 // console.log(genDiff(
 //   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
-//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json', 'plain'
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json'
 // ));
 
 // ____________________________
