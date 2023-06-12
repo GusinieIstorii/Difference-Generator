@@ -9,19 +9,19 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-// test('genDiff json', () => {
-//   const file1 = getFixturePath('file1.json');
-//   const file2 = getFixturePath('file2.json');
-//   const expectedResult = readFile('expectedResult.txt');
-//   expect(genDiff(file1, file2)).toEqual(expectedResult);
-// });
+test('genDiff json', () => {
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
+  const expectedResult = readFile('expectedResult.txt');
+  expect(genDiff(file1, file2)).toEqual(expectedResult);
+});
 
-// test('genDiff yml', () => {
-//   const file1 = getFixturePath('filepath1.yml');
-//   const file2 = getFixturePath('filepath2.yml');
-//   const expectedResult = readFile('expectedResult.txt');
-//   expect(genDiff(file1, file2)).toEqual(expectedResult);
-// });
+test('genDiff yml', () => {
+  const file1 = getFixturePath('filepath1.yml');
+  const file2 = getFixturePath('filepath2.yml');
+  const expectedResult = readFile('expectedResult.txt');
+  expect(genDiff(file1, file2)).toEqual(expectedResult);
+});
 
 test('genDiff recursive json', () => {
   const file1 = getFixturePath('file3.json');
@@ -37,16 +37,30 @@ test('genDiff recursive yml', () => {
   expect(genDiff(file1, file2)).toEqual(expectedResult);
 });
 
-test('genDiff plain format', () => {
+test('genDiff plain format json', () => {
   const file1 = getFixturePath('file3.json');
   const file2 = getFixturePath('file4.json');
   const expectedResult = readFile('plainFormatResult.txt');
   expect(genDiff(file1, file2, 'plain')).toEqual(expectedResult);
 });
 
-test('genDiff plain format', () => {
+test('genDiff plain format yml', () => {
   const file1 = getFixturePath('filepath3.yml');
   const file2 = getFixturePath('filepath4.yml');
   const expectedResult = readFile('plainFormatResult.txt');
   expect(genDiff(file1, file2, 'plain')).toEqual(expectedResult);
+});
+
+test('genDiff json format json', () => {
+  const file1 = getFixturePath('file3.json');
+  const file2 = getFixturePath('file4.json');
+  const expectedResult = readFile('jsonFormatResult.json');
+  expect(genDiff(file1, file2, 'json')).toEqual(expectedResult);
+});
+
+test('genDiff json format yml', () => {
+  const file1 = getFixturePath('filepath3.yml');
+  const file2 = getFixturePath('filepath4.yml');
+  const expectedResult = readFile('jsonFormatResult.json');
+  expect(genDiff(file1, file2, 'json')).toEqual(expectedResult);
 });
