@@ -12,8 +12,8 @@ const genDiff = (file1, file2, format = 'stylish') => {
     const allKeys = _.union(keys1, keys2).sort();
 
     const diff = allKeys.map((key) => {
-      const node = {};
-      node.key = key;
+      // const node = {};
+      // node.key = key;
       const preparedValue1 = data1[key];
       const preparedValue2 = data2[key];
 
