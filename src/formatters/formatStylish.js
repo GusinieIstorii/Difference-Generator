@@ -39,7 +39,7 @@ const stylish = (valueToFormat) => {
           line = `${indent}  ${obj.key}: ${stringify(obj.value, depth)}`;
           break;
         case 'update':
-          line = `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth + 1)}`;
+          line = `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth)}`;
           break;
         default:
           line = 'IDK the case';
