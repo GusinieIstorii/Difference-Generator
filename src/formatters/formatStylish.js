@@ -23,28 +23,22 @@ const stylish = (valueToFormat) => {
     const lines = data.map((obj) => {
       const spaceCount = depth * 4 - 2;
       const indent = ' '.repeat(spaceCount);
-      let line;
 
       switch (obj.type) {
         case 'nested': {
           return `${indent}  ${obj.key}: ${iter(obj.children, depth + 1)}`;
         }
         case 'removal':
-          line = `${indent}- ${obj.key}: ${stringify(obj.value, depth)}`;
-          break;
+          return `${indent}- ${obj.key}: ${stringify(obj.value, depth)}`;
         case 'addition':
-          line = `${indent}+ ${obj.key}: ${stringify(obj.value, depth)}`;
-          break;
+          return `${indent}+ ${obj.key}: ${stringify(obj.value, depth)}`;
         case 'noChange':
-          line = `${indent}  ${obj.key}: ${stringify(obj.value, depth)}`;
-          break;
+          return `${indent}  ${obj.key}: ${stringify(obj.value, depth)}`;
         case 'update':
-          line = `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth)}`;
-          break;
+          return `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth)}`;
         default:
-          line = 'IDK the case';
+          return 'IDK the case';
       }
-      return line;
     });
 
     const outIndent = ' '.repeat((depth * 4) - 4);

@@ -25,34 +25,43 @@ const genDiff = (file1, file2, format = 'stylish') => {
       const file2HasKey = Object.hasOwn(data2, key);
 
       if (file1HasKey && !file2HasKey) {
-        node.value = preparedValue1;
-        node.type = 'removal';
-        return node;
+        // node.value = preparedValue1;
+        // node.type = 'removal';
+        // return node;
+        return { key, value: preparedValue1, type: 'removal' };
       }
 
       if (!file1HasKey && file2HasKey) {
-        node.value = preparedValue2;
-        node.type = 'addition';
-        return node;
+        // node.value = preparedValue2;
+        // node.type = 'addition';
+        // return node;
+        return { key, value: preparedValue2, type: 'addition' };
       }
 
       if (file1HasKey && file2HasKey) {
         if (preparedValue1 === preparedValue2) {
-          node.value = preparedValue1;
-          node.type = 'noChange';
-        } else {
-          node.valueBefore = preparedValue1;
-          node.valueAfter = preparedValue2;
-          node.type = 'update';
+          // node.value = preparedValue1;
+          // node.type = 'noChange';
+          return { key, value: preparedValue1, type: 'noChange' };
         }
+        // node.valueBefore = preparedValue1;
+        // node.valueAfter = preparedValue2;
+        // node.type = 'update';
       }
-
-      return node;
+      return {
+        key, valueBefore: preparedValue1, valueAfter: preparedValue2, type: 'update',
+      };
+      // return node;
     });
     return diff;
   };
 
   return formatDiff(iter(fileParsed1, fileParsed2), format);
 };
+
+// console.log(genDiff(
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json'
+// ));
 
 export default genDiff;

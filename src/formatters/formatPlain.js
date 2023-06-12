@@ -14,28 +14,22 @@ const plain = (dataToFormat) => {
   const iter = (data, path = '') => {
     const lines = data.map((obj) => {
       const currentPath = path ? `${path}.${obj.key}` : obj.key;
-      let line;
 
       switch (obj.type) {
         case 'nested': {
           return iter(obj.children, currentPath);
         }
         case 'removal':
-          line = `Property '${currentPath}' was removed`;
-          break;
+          return `Property '${currentPath}' was removed`;
         case 'addition':
-          line = `Property '${currentPath}' was added with value: ${stringify(obj.value)}`;
-          break;
+          return `Property '${currentPath}' was added with value: ${stringify(obj.value)}`;
         case 'noChange':
-          line = 'No change';
-          break;
+          return 'No change';
         case 'update':
-          line = `Property '${currentPath}' was updated. From ${stringify(obj.valueBefore)} to ${stringify(obj.valueAfter)}`;
-          break;
+          return `Property '${currentPath}' was updated. From ${stringify(obj.valueBefore)} to ${stringify(obj.valueAfter)}`;
         default:
-          line = 'No change';
+          return 'error in type identification';
       }
-      return line;
     });
 
     const filteredLines = lines.filter((line) => line !== 'No change');
