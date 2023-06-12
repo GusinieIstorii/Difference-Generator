@@ -25,4 +25,4 @@ The tool compares two configuration files and shows a difference.
 
 ### How does it work?
 ### [Demonstration](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L)
-[![asciicast](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L.png)](https://asciinema.org/a/btXWNuQJmYNMr9js64V6DwaDY)
+[![asciicast](https://asciinema.org/a/H7gkHFXUGfSZB3gMRqRYfme4L.png)](hhttps://asciinema.org/a/elpLx1y95z1zht6OyWJCWZAV9)
