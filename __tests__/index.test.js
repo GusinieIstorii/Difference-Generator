@@ -2,7 +2,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'node:path';
-import genDiff from '../src/genDiff.js';
+import getFormattedDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -37,7 +37,7 @@ describe('gendiff utility', () => {
   test.each(cases)(
     'given %p, %p and %p as arguments, returns %p',
     (firstArg, secondArg, format, expectedResult) => {
-      const result = genDiff(firstArg, secondArg, format);
+      const result = getFormattedDiff(firstArg, secondArg, format);
       expect(result).toEqual(expectedResult);
     },
   );

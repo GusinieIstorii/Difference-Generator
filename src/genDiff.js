@@ -1,11 +1,6 @@
 import _ from 'lodash';
-import getData from './parser.js';
-import formatDiff from './formatters/index.js';
 
-const genDiff = (file1, file2, format = 'stylish') => {
-  const fileParsed1 = getData(file1);
-  const fileParsed2 = getData(file2);
-
+const genDiff = (fileParsed1, fileParsed2) => {
   const iter = (data1, data2) => {
     const keys1 = Object.keys(data1);
     const keys2 = Object.keys(data2);
@@ -42,12 +37,7 @@ const genDiff = (file1, file2, format = 'stylish') => {
     return diff;
   };
 
-  return formatDiff(iter(fileParsed1, fileParsed2), format);
+  return iter(fileParsed1, fileParsed2);
 };
-
-// console.log(genDiff(
-//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
-//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json'
-// ));
 
 export default genDiff;

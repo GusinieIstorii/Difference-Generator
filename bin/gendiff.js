@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import genDiff from '../src/genDiff.js';
-// import formatDiff from '../src/formatters/index.js';
-// import stylish from '../src/formatters/formatStylish.js';
+import getFormattedDiff from '../src/index.js';
 
 const program = new Command();
 
@@ -15,7 +13,7 @@ program
   .argument('<path1>', 'first file')
   .argument('<path2>', 'second file')
   .action((path1, path2) => {
-    console.log(genDiff(path1, path2, program.opts().format));
+    console.log(getFormattedDiff(path1, path2, program.opts().format));
   });
 
 program.parse();
