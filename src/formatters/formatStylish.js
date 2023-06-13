@@ -21,20 +21,22 @@ const stringify = (valueToStringify, newDepth) => {
 const stylish = (valueToFormat) => {
   const iter = (data, depth) => {
     const lines = data.map((obj) => {
-      const spaceCount = depth * 4 - 2;
+      const displacementRight = 4;
+      const spaceforSpecialChar = 2;
+      const spaceCount = depth * displacementRight - spaceforSpecialChar;
       const indent = ' '.repeat(spaceCount);
 
       switch (obj.type) {
         case 'nested': {
           return `${indent}  ${obj.key}: ${iter(obj.children, depth + 1)}`;
         }
-        case 'removal':
+        case 'removed':
           return `${indent}- ${obj.key}: ${stringify(obj.value, depth)}`;
-        case 'addition':
+        case 'added':
           return `${indent}+ ${obj.key}: ${stringify(obj.value, depth)}`;
-        case 'noChange':
+        case 'unchanged':
           return `${indent}  ${obj.key}: ${stringify(obj.value, depth)}`;
-        case 'update':
+        case 'updated':
           return `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth)}`;
         default:
           return 'IDK the case';

@@ -19,13 +19,13 @@ const plain = (dataToFormat) => {
         case 'nested': {
           return iter(obj.children, currentPath);
         }
-        case 'removal':
+        case 'removed':
           return `Property '${currentPath}' was removed`;
-        case 'addition':
+        case 'added':
           return `Property '${currentPath}' was added with value: ${stringify(obj.value)}`;
-        case 'noChange':
+        case 'unchanged':
           return 'No change';
-        case 'update':
+        case 'updated':
           return `Property '${currentPath}' was updated. From ${stringify(obj.valueBefore)} to ${stringify(obj.valueAfter)}`;
         default:
           return 'error in type identification';
@@ -41,40 +41,3 @@ const plain = (dataToFormat) => {
 };
 
 export default plain;
-
-// [
-//     {
-//       key: 'common',
-//       type: 'nested',
-//       children: [
-//         {
-//             key: 'follow',
-//             type: 'addition',
-//             value: false
-//         },
-//         {
-//             key: 'settings3',
-//             type: 'update',
-//             valueBefore: true,
-//             valueAfter: null
-//         },
-//         {
-//             key: 'settings5',
-//             type: 'addition',
-//             value: { key: 'key5', value: 'value5' }
-//         }
-//       ]
-//     },
-//     {
-//       key: 'group2',
-//       type: 'removal',
-//       value: { abc: 12345, deep: { key: 'key5', value: 'value5' } }
-//     },
-//     {
-//       key: 'group3',
-//       type: 'addition',
-//       value: { fee: 100500 }
-//     }
-//   ]
-
-// добавить ребенка без изменений

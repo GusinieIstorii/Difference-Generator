@@ -9,11 +9,9 @@ const genDiff = (file1, file2, format = 'stylish') => {
   const iter = (data1, data2) => {
     const keys1 = Object.keys(data1);
     const keys2 = Object.keys(data2);
-    const allKeys = _.union(keys1, keys2).sort();
+    const allKeys = _.sortBy(_.union(keys1, keys2));
 
     const diff = allKeys.map((key) => {
-      // const node = {};
-      // node.key = key;
       const preparedValue1 = data1[key];
       const preparedValue2 = data2[key];
 
@@ -25,33 +23,21 @@ const genDiff = (file1, file2, format = 'stylish') => {
       const file2HasKey = Object.hasOwn(data2, key);
 
       if (file1HasKey && !file2HasKey) {
-        // node.value = preparedValue1;
-        // node.type = 'removal';
-        // return node;
-        return { key, value: preparedValue1, type: 'removal' };
+        return { key, value: preparedValue1, type: 'removed' };
       }
 
       if (!file1HasKey && file2HasKey) {
-        // node.value = preparedValue2;
-        // node.type = 'addition';
-        // return node;
-        return { key, value: preparedValue2, type: 'addition' };
+        return { key, value: preparedValue2, type: 'added' };
       }
 
       if (file1HasKey && file2HasKey) {
         if (preparedValue1 === preparedValue2) {
-          // node.value = preparedValue1;
-          // node.type = 'noChange';
-          return { key, value: preparedValue1, type: 'noChange' };
+          return { key, value: preparedValue1, type: 'unchanged' };
         }
-        // node.valueBefore = preparedValue1;
-        // node.valueAfter = preparedValue2;
-        // node.type = 'update';
       }
       return {
-        key, valueBefore: preparedValue1, valueAfter: preparedValue2, type: 'update',
+        key, valueBefore: preparedValue1, valueAfter: preparedValue2, type: 'updated',
       };
-      // return node;
     });
     return diff;
   };
