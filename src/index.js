@@ -28,5 +28,5 @@ export default getFormattedDiff;
 
 // console.log(getFormattedDiff(
 //   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file3.json',
-//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json', 'json'
+//   '/Users/ksenia/Documents/FRONTEND/frontend-project-46/__fixtures__/file4.json'
 // ));
