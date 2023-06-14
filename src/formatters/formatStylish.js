@@ -20,7 +20,7 @@ const stringify = (valueToStringify, newDepth) => {
 
 const stylish = (valueToFormat) => {
   const iter = (data, depth) => {
-    const lines = data.map((obj) => {
+    const lines = data.flatMap((obj) => {
       const displacementRight = 4;
       const spaceforSpecialChar = 2;
       const spaceCount = depth * displacementRight - spaceforSpecialChar;
@@ -37,9 +37,9 @@ const stylish = (valueToFormat) => {
         case 'unchanged':
           return `${indent}  ${obj.key}: ${stringify(obj.value, depth)}`;
         case 'updated':
-          return `${indent}- ${obj.key}: ${stringify(obj.valueBefore, depth)}\n${indent}+ ${obj.key}: ${stringify(obj.valueAfter, depth)}`;
+          return [`${indent}- ${obj.key}: ${stringify(obj.value1, depth)}`, `${indent}+ ${obj.key}: ${stringify(obj.value2, depth)}`];
         default:
-          return 'IDK the case';
+          throw new Error('IDK the case');
       }
     });
 

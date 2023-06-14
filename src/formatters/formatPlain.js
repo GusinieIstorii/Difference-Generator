@@ -12,7 +12,7 @@ const stringify = (value) => {
 
 const plain = (dataToFormat) => {
   const iter = (data, path = '') => {
-    const lines = data.map((obj) => {
+    const lines = data.flatMap((obj) => {
       const currentPath = path ? `${path}.${obj.key}` : obj.key;
 
       switch (obj.type) {
@@ -24,16 +24,15 @@ const plain = (dataToFormat) => {
         case 'added':
           return `Property '${currentPath}' was added with value: ${stringify(obj.value)}`;
         case 'unchanged':
-          return 'No change';
+          return [];
         case 'updated':
-          return `Property '${currentPath}' was updated. From ${stringify(obj.valueBefore)} to ${stringify(obj.valueAfter)}`;
+          return `Property '${currentPath}' was updated. From ${stringify(obj.value1)} to ${stringify(obj.value2)}`;
         default:
-          return 'error in type identification';
+          throw new Error('error in type identification');
       }
     });
 
-    const filteredLines = lines.filter((line) => line !== 'No change');
-    const result = [...filteredLines].join('\n');
+    const result = [...lines].join('\n');
     return result;
   };
 
