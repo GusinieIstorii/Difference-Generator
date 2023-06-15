@@ -2,8 +2,8 @@ import plain from './formatPlain.js';
 import stylish from './formatStylish.js';
 import json from './formatJson.js';
 
-const formatDiff = (data, format) => {
-  switch (format) {
+const format = (data, formatName) => {
+  switch (formatName) {
     case 'stylish':
       return stylish(data);
     case 'plain':
@@ -11,8 +11,8 @@ const formatDiff = (data, format) => {
     case 'json':
       return json(data);
     default:
-      throw new Error('IDK this format');
+      throw new Error(`Unknown format name: ${formatName}`);
   }
 };
 
-export default formatDiff;
+export default format;

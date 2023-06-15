@@ -7,7 +7,7 @@ const parse = (data, format) => {
   if (format === 'yaml' || format === 'yml') {
     return yaml.load(data);
   }
-  throw new Error('parsing failed');
+  throw new Error(`Parsing failed. Unknown format: ${format}`);
 };
 
 export default parse;

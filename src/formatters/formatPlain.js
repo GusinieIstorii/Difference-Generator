@@ -28,7 +28,7 @@ const plain = (dataToFormat) => {
         case 'updated':
           return `Property '${currentPath}' was updated. From ${stringify(obj.value1)} to ${stringify(obj.value2)}`;
         default:
-          throw new Error('error in type identification');
+          throw new Error(`Plain formatting failed. Unknown type: ${obj.type}`);
       }
     });
 

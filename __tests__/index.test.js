@@ -41,4 +41,10 @@ describe('gendiff utility', () => {
       expect(result).toEqual(expectedResult);
     },
   );
+  test('default format json files', () => {
+    expect(getFormattedDiff(file1json, file2json)).toEqual(expectedResultStylish);
+  });
+  test('default format yml files', () => {
+    expect(getFormattedDiff(file1yml, file2yml)).toEqual(expectedResultStylish);
+  });
 });

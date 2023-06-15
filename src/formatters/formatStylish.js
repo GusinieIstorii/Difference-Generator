@@ -39,7 +39,7 @@ const stylish = (valueToFormat) => {
         case 'updated':
           return [`${indent}- ${obj.key}: ${stringify(obj.value1, depth)}`, `${indent}+ ${obj.key}: ${stringify(obj.value2, depth)}`];
         default:
-          throw new Error('IDK the case');
+          throw new Error(`Stylish formatting failed. Unknown type: ${obj.type}`);
       }
     });
 

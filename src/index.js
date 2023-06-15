@@ -3,7 +3,7 @@ import path from 'node:path';
 import { cwd } from 'node:process';
 import parse from './parser.js';
 import genDiff from './genDiff.js';
-import formatDiff from './formatters/index.js';
+import format from './formatters/index.js';
 
 const getPath = (filepath) => path.resolve(cwd(), filepath);
 
@@ -13,7 +13,7 @@ const getData = (file) => {
   return data;
 };
 
-const getFormattedDiff = (file1, file2, format = 'stylish') => {
+const getFormattedDiff = (file1, file2, formatName = 'stylish') => {
   const data1 = getData(file1);
   const data2 = getData(file2);
   const data1Format = path.extname(file1).slice(1);
@@ -21,7 +21,7 @@ const getFormattedDiff = (file1, file2, format = 'stylish') => {
   const fileParsed1 = parse(data1, data1Format);
   const fileParsed2 = parse(data2, data2Format);
   const diff = genDiff(fileParsed1, fileParsed2);
-  const formattedDiff = formatDiff(diff, format);
+  const formattedDiff = format(diff, formatName);
   return formattedDiff;
 };
 
